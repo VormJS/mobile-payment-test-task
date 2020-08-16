@@ -1,0 +1,19 @@
+.operator-container {
+  display: flex;
+  padding: 35px;
+  flex-flow: wrap;
+  justify-content: space-around;
+  text-align: center;
+  margin: auto;
+  max-width: 1024px;
+}
+.operator-card {
+  height: 20vh;
+  width: 25%;
+  margin-bottom: 25px;
+}
+.operator-logo {
+  object-fit: contain;
+  height: 80%;
+  width: 100%;
+}

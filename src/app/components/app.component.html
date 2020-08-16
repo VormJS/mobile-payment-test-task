@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <div class="toolbar-area">
+    <button mat-mini-fab color="primary" routerLink="" routerLinkActive="hidden"
+      [routerLinkActiveOptions]="{ exact: true }">
+      <mat-icon aria-hidden="false" aria-label="back icon">
+        navigate_before
+      </mat-icon>
+    </button>
+  </div>
+  <div class="toolbar-area center-area">
+    <span>Mobile payment</span>
+  </div>
+  <div class="toolbar-area right-area">
+  </div>
+</mat-toolbar>
+<router-outlet></router-outlet>

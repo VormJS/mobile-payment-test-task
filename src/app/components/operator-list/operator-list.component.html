@@ -1,0 +1,9 @@
+
+<div class=operator-container>
+  <mat-card class="operator-card" *ngFor="let operator of operators" routerLink="/operators/{{operator.title}}">
+    <mat-card-title>{{operator.title}}</mat-card-title>
+    <img mat-card-image class="operator-logo" src="{{ operator.logo }}" alt="{{ operator.title + ' logo' }}">
+  </mat-card>
+</div>
+
+

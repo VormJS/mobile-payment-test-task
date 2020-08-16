@@ -1,27 +1,14 @@
-# MobilePaymentTestTask
+This project created for recruiting test task.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
+Requirements:
+Main screen
+* The list of supported carrier operators: MTS, Beeline, Megafon (implement flexibility to extend list of supported operators)
+* Click on certain operator should redirect to the refilling screen
 
-## Development server
+Refill balance form
+* Identifier of the selected operator
+* Phone number input field (with mask and validation)
+* The field for entering the amount of refill in rubles (with mask and validation, min possible amount - 1 rub, max - 1000 rubles)
+* Submit button - should wait for a response from the server, show a message about the success or error. In case of success, return to the main screen.* Success and error should be implemented randomly
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Made with Angular Material (https://material.angular.io/)
