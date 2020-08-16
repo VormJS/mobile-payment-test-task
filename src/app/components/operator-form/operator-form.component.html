@@ -1,3 +1,42 @@
-<div>
-  <p>{{operatorTitle}}</p>
-</div>
+<mat-card class="operator-form">
+  <mat-card-header>
+    <mat-card-title>{{ operator.title }}</mat-card-title>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <form [formGroup]="operatorForm" (ngSubmit)="pay()">
+      <br>
+      <!-- Phone -->
+      <mat-form-field appearance="fill" class="form-component">
+        <!-- appearance="outline" -->
+        <mat-label>Phone</mat-label>
+        <span matPrefix>+7 &nbsp;</span>
+        <input matInput type="tel" placeholder="(000) 000-00-00" formControlName="phone" 
+        mask='(000) 000-00-00' required>
+        <mat-error *ngIf="hasError('phone', 'required')">Can't be empty</mat-error>
+        <mat-error *ngIf="hasError('phone', 'mask')">Invalid number</mat-error>
+      </mat-form-field>
+      <br>
+
+      <!-- Sum -->
+      <mat-form-field appearance="fill" class="form-component">
+        <mat-label>Sum</mat-label>
+        <input matInput type="text" placeholder="500" formControlName="sum" required
+        mask='9999'>
+        <span matSuffix>₽</span>
+        <mat-error *ngIf="hasError('sum', 'required')">Can't be empty</mat-error>
+        <mat-error *ngIf="hasError('sum', 'min')">Must be more than 0</mat-error>
+        <mat-error *ngIf="hasError('sum', 'max')">Must be less or equal than 1000</mat-error>
+        <mat-hint>Accepts from 1 to 1000 roubles</mat-hint>
+      </mat-form-field>
+      <br>
+
+      <mat-card-actions class="form-actions">
+        <button mat-raised-button class="form-button" type="submit" [disabled]="!operatorForm.valid" color="primary">
+          Pay
+        </button>
+      </mat-card-actions>
+
+    </form>
+  </mat-card-content>
+</mat-card>

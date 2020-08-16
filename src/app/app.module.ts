@@ -4,10 +4,15 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { OperatorListComponent } from './components/operator-list/operator-list.component';
-
 import { MaterialModule } from './material.module';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+
+import { OperatorListComponent } from './components/operator-list/operator-list.component';
 import { OperatorFormComponent } from './components/operator-form/operator-form.component';
+
+export const options: Partial<IConfig> | (() => Partial<IConfig>) ={};
 
 @NgModule({
   declarations: [
@@ -16,10 +21,13 @@ import { OperatorFormComponent } from './components/operator-form/operator-form.
     OperatorFormComponent
   ],
   imports: [
+    NgxMaskModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
