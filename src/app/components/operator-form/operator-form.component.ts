@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { OPERATORS } from 'src/app/helpers/operators';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FakeApiService } from 'src/app/services/fake-api.service';
 
 @Component({
   selector: 'app-operator-form',
@@ -17,7 +18,8 @@ export class OperatorFormComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private formBuilder: FormBuilder,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private fakeApiService: FakeApiService
   ) { }
 
   ngOnInit(): void {
@@ -34,17 +36,13 @@ export class OperatorFormComponent implements OnInit {
     return this.operatorForm.controls[controlName].hasError(errorName);
   }
   pay() {
-    if (Math.random() > 0.5) {
-      this.snackBar.open(`Payment accepted`, '', {
-        duration: 3000,
-        verticalPosition: 'top',
+    this.fakeApiService.pay(this.operator.title, this.operatorForm.value.phone, this.operatorForm.value.sum).then(
+      result => {
+        this.snackBar.open(result.message, '', {
+          duration: 3000,
+          verticalPosition: 'top',
+        });
+        if (result.success) { this.router.navigate(['']) }
       });
-      this.router.navigate(['']);
-    } else {
-      this.snackBar.open(`Payment denied`, '', {
-        duration: 3000,
-        verticalPosition: 'top',
-      });
-    }
   }
 }
